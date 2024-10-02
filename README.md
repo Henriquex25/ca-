@@ -1,4 +1,4 @@
-Função simples para obter a distância (em linha reta) entre duas coordenadas geográficas.
+## Função simples para obter a distância (em linha reta) entre duas coordenadas geográficas.
 
 ### Exemplo de uso em PHP
 ```php
