@@ -1,7 +1,7 @@
 <?php
-function getDistance($lat1, $lon1, $lat2, $lon2): float {
-    // Raio da Terra em quilômetros
-    $earthRadius = 6371;
+function getDistance(float $lat1, float $lon1, float $lat2, float $lon2, string $unit = 'm'): float {
+    // Raio da Terra em metros
+    $earthRadius = 6371000;
 
     // Converter graus para radianos
     $lat1 = deg2rad($lat1);
@@ -24,16 +24,10 @@ function getDistance($lat1, $lon1, $lat2, $lon2): float {
     $distance = $earthRadius * $c;
     $distance = number_format($distance, 2);
 
+    if ($unit == 'km') {
+        $distance /= 1000;
+        $distance = number_format($distance, 2);
+    }
+
     return floatval($distance);
 }
-
-// Exemplo de uso
-// $lat1 = -23.550520; // Coordenada 1 (São Paulo)
-// $lon1 = -46.633308;
-
-// $lat2 = -22.906847; // Coordenada 2 (Rio de Janeiro)
-// $lon2 = -43.172896;
-
-// $distancia = getDistance($lat1, $lon1, $lat2, $lon2);
-
-// echo "A distância entre os dois pontos é: " . $distancia . " km";
